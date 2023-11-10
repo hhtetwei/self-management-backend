@@ -29,7 +29,7 @@ const noteService = {
     return note
   },
 
-  createNote: async ({ payload }) => {
+  createNote: async (payload) => {
     const note = await noteModel.create(payload)
 
     return note

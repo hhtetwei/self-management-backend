@@ -2,41 +2,41 @@ const Joi = require('joi')
 Joi.objectid = require('joi-objectid')(Joi)
 
 const schema = Object.freeze({
-    GET_NOTES: Joi.object({
-        query: Joi.object({
-            sort: Joi.any().default('-createdAt')
-        })
+  GET_NOTES: Joi.object({
+    query: Joi.object({
+      sort: Joi.any().default('-createdAt'),
+    }),
+  }),
+
+  GET_NOTE: Joi.object({
+    params: Joi.object({
+      id: Joi.objectid().required(),
+    }),
+  }),
+
+  CREATE_NOTE: Joi.object({
+    body: Joi.object({
+      title: Joi.string().required(),
+      notes: Joi.string().required(),
+    }),
+  }),
+
+  UPDATE_NOTE: Joi.object({
+    params: Joi.object({
+      id: Joi.objectid().required(),
     }),
 
-    GET_NOTE: Joi.object({
-        params: Joi.object({
-            id: Joi.objectid().required()
-        })
+    body: Joi.object({
+      title: Joi.string(),
+      notes: Joi.string(),
     }),
+  }),
 
-    CREATE_NOTE: Joi.object({
-        body: Joi.object({
-            title: Joi.string().allow(''),
-            notes: Joi.string().required()
-        })
+  DELETE_NOTE: Joi.object({
+    params: Joi.object({
+      id: Joi.objectid().required(),
     }),
-
-    UPDATE_NOTE: Joi.object({
-        params: Joi.object({
-            id: Joi.objectid().required()
-        }),
-
-        body: Joi.object({
-            title: Joi.string(),
-            notes: Joi.string()
-        })
-    }),
-
-    DELETE_NOTE: Joi.object({
-        params: Joi.object({
-            id:Joi.objectid().required()
-        })
-    })
+  }),
 })
 
 module.exports = schema

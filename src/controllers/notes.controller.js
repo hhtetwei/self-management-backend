@@ -1,5 +1,5 @@
 const { NOTE_ERRORS } = require('../constants/errors.constants')
-const noteService = require('../services/notes.services')
+const { noteService } = require('../services/notes.services')
 
 const notesController = {
   getNotes: async (req, res, next) => {
@@ -7,7 +7,7 @@ const notesController = {
       const notes = await noteService.getNotes({ query: req.query })
 
       return res.status(201).json({
-        data: notes,
+        notes,
       })
     } catch (err) {
       next(err)
@@ -23,7 +23,7 @@ const notesController = {
       }
 
       return res.status(201).json({
-        data: note,
+        note,
       })
     } catch (err) {
       next(err)
@@ -32,11 +32,9 @@ const notesController = {
 
   createNote: async (req, res, next) => {
     try {
-      const notes = await noteService.createNote(req.body)
+      const note = await noteService.createNote(req.body)
 
-      const payload = { ...req.body }
-
-      return res.status(201).json({ data: notes })
+      return res.status(201).json({ note })
     } catch (err) {
       next(err)
     }
