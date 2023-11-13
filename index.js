@@ -10,8 +10,10 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json({ limit: '10mb' }))
 
 const noteRoute = require('./src/routes/notes.routes')
+const toDoRoute = require('./src/routes/toDos.routes')
 
 app.use('/api/notes', noteRoute)
+app.use('/api/toDo', toDoRoute)
 
 app.use('*', (req, res) => {
   res.status(404).json({

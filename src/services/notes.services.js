@@ -42,6 +42,15 @@ const noteService = {
     }
     return note
   },
+
+  editNote: async ({ id, payload }) => {
+    const note = await noteModel.findByIdAndUpdate(id, payload, {
+      new: true,
+      runValidators: true,
+    })
+
+    return note
+  },
 }
 
 module.exports = {

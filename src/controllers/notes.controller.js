@@ -42,7 +42,10 @@ const notesController = {
 
   editNote: async (req, res, next) => {
     try {
-      const notes = await noteService.editNote(req.params.id, req.body)
+      const notes = await noteService.editNote({
+        id: req.params.id,
+        payload: req.body,
+      })
 
       return res.status(201).json({ data: notes })
     } catch (err) {
