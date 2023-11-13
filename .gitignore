@@ -1,3 +1,2 @@
+#git ignore
 .env
-.env.*
-!.env.reference
