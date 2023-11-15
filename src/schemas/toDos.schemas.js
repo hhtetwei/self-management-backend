@@ -5,7 +5,7 @@ const schema = Object.freeze({
   CREATE_TODO: Joi.object({
     body: Joi.object({
       to_do: Joi.string().required(),
-      important: Joi.boolean().required().default(false),
+      important: Joi.boolean().default(false),
       due_date: Joi.date().required(),
     }),
   }),

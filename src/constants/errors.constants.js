@@ -12,7 +12,15 @@ const TODO_ERRORS = {
   },
 }
 
+const TOBUY_ERRORS = {
+  NOT_FOUND: {
+    code: 404,
+    message: 'To Buy Not Found',
+  },
+}
+
 module.exports = {
   NOTE_ERRORS,
   TODO_ERRORS,
+  TOBUY_ERRORS,
 }
