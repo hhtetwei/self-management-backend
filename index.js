@@ -12,10 +12,12 @@ app.use(express.json({ limit: '10mb' }))
 const noteRoute = require('./src/routes/notes.routes')
 const toDoRoute = require('./src/routes/toDos.routes')
 const toBuyRoute = require('./src/routes/toBuy.routes')
+const toTravelRoute = require('./src/routes/toTravel.routes')
 
 app.use('/api/notes', noteRoute)
 app.use('/api/toDo', toDoRoute)
 app.use('/api/toBuy', toBuyRoute)
+app.use('/api/toTravel', toTravelRoute)
 
 app.use('*', (req, res) => {
   res.status(404).json({

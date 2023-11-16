@@ -12,7 +12,7 @@ const toTravelSchema = new mongoose.Schema(
     },
 
     planned_year: {
-      type: Date,
+      type: String,
     },
   },
   {

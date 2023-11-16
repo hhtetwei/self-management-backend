@@ -19,8 +19,16 @@ const TOBUY_ERRORS = {
   },
 }
 
+const TOTRAVEL_ERRORS = {
+  NOT_FOUND: {
+    code: 404,
+    message: 'To Travel Not Found',
+  },
+}
+
 module.exports = {
   NOTE_ERRORS,
   TODO_ERRORS,
   TOBUY_ERRORS,
+  TOTRAVEL_ERRORS,
 }

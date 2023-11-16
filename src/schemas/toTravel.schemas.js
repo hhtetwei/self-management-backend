@@ -1,7 +1,7 @@
 const Joi = require('joi')
 Joi.objectid = require('joi-objectid')(Joi)
 
-const schema = object.freeze({
+const schema = Object.freeze({
   GET_ALL_TRAVEL: Joi.object({
     query: Joi.object({
       sort: Joi.string().default('-createdAt'),
@@ -21,7 +21,7 @@ const schema = object.freeze({
     body: Joi.object({
       place: Joi.string().required(),
       priority: Joi.string().valid('totally', 'middle'),
-      planned_year: Joi.date().format('YYYY').allow(''),
+      planned_year: Joi.string().max(new Date().getFullYear()).required(),
     }),
   }),
 
