@@ -26,9 +26,22 @@ const TOTRAVEL_ERRORS = {
   },
 }
 
+const USER_ERRORS = {
+  NOT_FOUND: {
+    code: 404,
+    message: ' User Not Found',
+  },
+
+  ALREADY_EXIST: {
+    code: 404,
+    message: 'This User already exist',
+  },
+}
+
 module.exports = {
   NOTE_ERRORS,
   TODO_ERRORS,
   TOBUY_ERRORS,
   TOTRAVEL_ERRORS,
+  USER_ERRORS,
 }

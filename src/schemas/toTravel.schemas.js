@@ -33,7 +33,7 @@ const schema = Object.freeze({
     body: Joi.object({
       place: Joi.string(),
       priority: Joi.string().valid('totally', 'middle'),
-      planned_year: Joi.date(),
+      planned_year: Joi.string().max(new Date().getFullYear()),
     }),
   }),
 

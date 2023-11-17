@@ -24,6 +24,12 @@ const schema = Object.freeze({
     params: Joi.object({
       id: Joi.objectid().required(),
     }),
+
+    body: Joi.object({
+      to_do: Joi.string().required(),
+      important: Joi.boolean().default(false),
+      due_date: Joi.date().required(),
+    }),
   }),
 
   DELETE_TODO: Joi.object({
