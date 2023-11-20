@@ -11,10 +11,7 @@ const sendToken = async (user) => {
   //   }
   //   res.cookie('jwt', token, cookieOptions)
 
-  user.password = undefined
-  user.last_access = undefined
-
   return token
 }
 
-module.exports = sendToken
+module.exports = { sendToken }
