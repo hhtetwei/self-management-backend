@@ -36,6 +36,11 @@ const USER_ERRORS = {
     code: 404,
     message: 'This User already exist',
   },
+
+  NOT_AUTHENTICATED: {
+    code: 401,
+    message: 'You are not authenticated.Please log in',
+  },
 }
 
 module.exports = {

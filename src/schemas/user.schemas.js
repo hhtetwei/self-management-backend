@@ -36,6 +36,17 @@ const schema = Object.freeze({
     }),
   }),
 
+  LOGIN: Joi.object({
+    body: Joi.object({
+      email: Joi.string().required().messages({
+        'string.email': 'email is required',
+      }),
+      password: Joi.string().required().messages({
+        'any.required': 'Password is required',
+      }),
+    }),
+  }),
+
   DELETE_USER: Joi.object({
     params: Joi.object({
       id: Joi.objectid().required(),

@@ -1,4 +1,6 @@
 const { sendToken } = require('../../utils/sendToken')
+const { USER_ERRORS } = require('../constants/errors.constants')
+
 const userModel = require('../models/user.models')
 
 const authService = {
@@ -14,6 +16,20 @@ const authService = {
     const token = await sendToken(user)
 
     return { user, token }
+  },
+
+  login: async (reqBody) => {
+    const user = await userModel
+      .findOne({ email: reqBody.email })
+      .select('+password')
+
+    if (!user) return USER_ERRORS.NOT_FOUND
+
+    if (!(await user.comparePassword(reqBody.password, user.password)))
+      return USER_ERRORS.NOT_FOUND
+
+    const jwtToken = await sendToken(user)
+    return { user, jwtToken }
   },
 }
 

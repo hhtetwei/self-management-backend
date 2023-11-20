@@ -10,6 +10,16 @@ const authController = {
       next(err)
     }
   },
+
+  login: async (req, res, next) => {
+    try {
+      const { user, jwtToken } = await authService.login(req.body)
+
+      return res.status(200).json({ data: user, token: jwtToken })
+    } catch (err) {
+      next(err)
+    }
+  },
 }
 
 module.exports = authController
