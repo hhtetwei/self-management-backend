@@ -18,7 +18,7 @@ const authService = {
     return { user, token }
   },
 
-  login: async (reqBody) => {
+  login: async (reqBody, res) => {
     const user = await userModel
       .findOne({ email: reqBody.email })
       .select('+password')
