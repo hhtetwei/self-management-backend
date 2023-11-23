@@ -8,7 +8,8 @@ const authenticate = async (req, res, next) => {
     req.headers.authorization &&
     req.headers.authorization.startsWith('Bearer')
   ) {
-    token = req.headers.authorization.split(' ')[1]
+    const [bearer, jwtToken] = req.headers.authorization.split(' ')
+    token = jwtToken
   } else if (req.cookies.jwt) {
     token = req.cookies.jwt
   }

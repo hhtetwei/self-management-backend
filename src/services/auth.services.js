@@ -13,7 +13,7 @@ const authService = {
 
     const user = await userModel.create(reqBody)
 
-    const token = await sendToken(user)
+    const token = sendToken(user, res)
 
     return { user, token }
   },
@@ -28,7 +28,7 @@ const authService = {
     if (!(await user.comparePassword(reqBody.password, user.password)))
       return USER_ERRORS.NOT_FOUND
 
-    const jwtToken = await sendToken(user)
+    const jwtToken = sendToken(user)
     return { user, jwtToken }
   },
 }
