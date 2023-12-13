@@ -15,12 +15,15 @@ const toDoRoute = require('./src/routes/toDos.routes')
 const toBuyRoute = require('./src/routes/toBuy.routes')
 const toTravelRoute = require('./src/routes/toTravel.routes')
 const authRoute = require('./src/routes/auth.routes')
+const usersRoute = require('./src/routes/users.routes')
 
 app.use('/api/notes', noteRoute)
 app.use('/api/toDo', toDoRoute)
 app.use('/api/toBuy', toBuyRoute)
 app.use('/api/toTravel', toTravelRoute)
 app.use('/api/auth', authRoute)
+app.use('/api/auth', authRoute)
+app.use('/api/users', usersRoute)
 
 app.use('*', (req, res) => {
   res.status(404).json({

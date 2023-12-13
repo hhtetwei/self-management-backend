@@ -11,6 +11,16 @@ const userController = {
     }
   },
 
+  getUsers: async (req, res, next) => {
+    try {
+      const users = await userService.getUsers(req.query)
+
+      res.status(200).json(users)
+    } catch (err) {
+      next(err)
+    }
+  },
+
   updateUser: async (req, res, next) => {
     try {
       const user = await userService.updateUser({

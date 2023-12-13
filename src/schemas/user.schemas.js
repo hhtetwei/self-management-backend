@@ -7,6 +7,7 @@ const schema = Object.freeze({
       skip: Joi.number().integer().default(0),
       limit: Joi.number().integer().default(10),
       sort: Joi.any().default('-start'),
+      search: Joi.string(),
     }),
   }),
 
